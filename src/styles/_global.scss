@@ -1,0 +1,104 @@
+$text-size: 1.5rem;
+$big-text: 5rem;
+$heading-size: 2.5rem;
+$main-color: #1c7993;
+$linkedin-color: #2867b2;
+$main-gradient: linear-gradient(315deg, #92aad3 26%, $main-color 74%);
+$secondary-font: 'Sacramento';
+$main-font: 'Comfortaa';
+$main-fontBold: 'ComfortaaBold';
+$main-dark: #222;
+$main-white: #efefef;
+$trans: all 0.8s ease-in-out;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Sacramento';
+    src: url(../Fonts/Sacramento-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(../Fonts/Comfortaa-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'ComfortaaBold';
+    src: url(../Fonts/Comfortaa-Bold.ttf);
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+svg {
+    overflow: visible;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+p,
+ul,
+a,
+input,
+button,
+textarea {
+    font-family: 'Comfortaa';
+    font-size: $text-size;
+}
+
+body {
+    font-family: 'Comfortaa';
+}
+
+::selection {
+    background: $main-color;
+    color: $main-white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #aaa;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: $main-gradient;
+    border-radius: 10px;
+}
+
+@mixin flex($dir, $justify, $align) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin caps {
+    text-transform: capitalize;
+}

@@ -1,0 +1,121 @@
+@import 'global';
+
+.model {
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: transparentize($main-color, $amount: 0.1);
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 45%;
+    place-items: center;
+    justify-content: center;
+
+    .inner {
+        border-radius: 1.5rem;
+        @include flex(column, center, center);
+        background: $main-white;
+        padding: 1.5rem 0;
+        box-shadow: 2px 4px 10px $main-dark;
+
+        .placeholder {
+            width: 85%;
+            box-shadow: 2px 2px 4px #999;
+            border-radius: .4rem;
+            overflow: hidden;
+            margin-bottom: .25rem;
+        }
+
+        .info {
+            text-align: center;
+            padding: 0 2.5rem;
+
+            .title {
+                font-size: 1.5rem;
+                text-transform: capitalize;
+                margin: .5rem 0;
+            }
+
+            .desc {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    .skills {
+        margin-top: 0.5rem;
+        width: 50%;
+        @include flex(row, space-between, center);
+
+        svg {
+            width: 1.8rem;
+            height: 1.8rem;
+
+            path {
+                fill: $main-color;
+            }
+        }
+    }
+
+    .buttons {
+        width: 100%;
+        @include flex(row, space-evenly, center);
+
+        .preview {
+            display: inline-block;
+            border: 1px solid transparent;
+            outline: none;
+            background: $main-gradient;
+            background-size: 250%;
+            background-position: 0;
+            color: $main-white;
+            margin-top: 1rem;
+            padding: .5rem 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 1px 1px 4px $main-dark;
+            animation: shinny 1s ease-in-out infinite alternate-reverse;
+            transition: all .4s cubic-bezier(0, .54, .38, .91);
+
+            &:hover {
+                transform: scale(1.1);
+                animation-duration: .5s;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .model {
+        grid-template-columns: 60%;
+
+        .inner {
+            .info {
+                .desc {
+                    padding: 0 .5rem;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .model {
+        grid-template-columns: 70%;
+
+        .inner {
+            .info {
+                padding: 0 2rem;
+            }
+        }
+    }
+}
+
+@keyframes shinny {
+    to {
+        background-position: 95%;
+    }
+}
